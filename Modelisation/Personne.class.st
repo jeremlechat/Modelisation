@@ -1,33 +1,26 @@
-"
-nom: monNom prenom: monPrenom age: monAge
-
-| tmp |
-tmp := self new.
-tmp nom: monNom .
-tmp prenom: monPrenom.
-tmp age: monAge.
-^tmp
-"
 Class {
 	#name : 'Personne',
 	#superclass : 'Object',
 	#instVars : [
 		'nom',
-		'prenom',
-		'age'
+		'age',
+		'prenom'
 	],
-	#category : 'Modelisation',
-	#package : 'Modelisation'
+	#category : 'Cours',
+	#package : 'Cours'
 }
 
-{ #category : 'instance creation' }
-Personne class >> nom: monNom prenom: monPrenom age: monAge [
+{ #category : 'examples' }
+Personne class >> example1 [
 
-| tmp |
-tmp := self new.
-tmp nom: monNom .
-tmp prenom: monPrenom.
-tmp age: monAge.
+^self nom: 'Yann' prenom:'Solo' age:30
+]
+
+{ #category : 'instance creation' }
+Personne class >> nom: a prenom: b age: c [
+
+|tmp|
+tmp := self new nom:a;prenom:b;age:c.
 ^tmp
 ]
 
@@ -55,17 +48,6 @@ Personne >> nom: anObject [
 	nom := anObject
 ]
 
-{ #category : 'instance creation' }
-Personne >> nom: monNom prenom: monPrenom age: monAge [
-
-| tmp |
-tmp := self new.
-tmp nom: monNom .
-tmp prenom: monPrenom.
-tmp age: monAge.
-^tmp
-]
-
 { #category : 'accessing' }
 Personne >> prenom [
 
@@ -80,13 +62,17 @@ Personne >> prenom: anObject [
 
 { #category : 'printing' }
 Personne >> printOn: aStream [
-aStream nextPutAll: 'je suis'.
-aStream nextPutAll: self nom.
-aStream space.
-aStream nextPutAll: self prenom.
-aStream cr.
-aStream nextPutAll: 'J ai'.
-aStream nextPutAll: self age.
-aStream nextPutAll: 'ans'.
-aStream cr.
+"un texte"
+aStream nextPutAll:'Je suis uen personne, et je m''apelle '.
+"des valeurs textuelles"
+aStream nextPutAll: self prenom; space;nextPutAll: self prenom;space.
+"une variable numérique. On lui délégue le fait de s'inscrire dans le stream"
+aStream nextPutAll: 'J''ai '. self age printOn: aStream.
+aStream nextPutAll:' ans';cr.
+
+]
+
+{ #category : 'age changing' }
+Personne >> vieillitDe: années [
+self age: self age + années
 ]
