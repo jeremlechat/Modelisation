@@ -6,7 +6,7 @@ Class {
 		'personne2'
 	],
 	#category : 'Cours',
-	#package : 'Cours'
+	#package : 'Modelisation'
 }
 
 { #category : 'testing' }
