@@ -7,7 +7,7 @@ Class {
 		'prenom'
 	],
 	#category : 'Cours',
-	#package : 'Cours'
+	#package : 'Modelisation'
 }
 
 { #category : 'examples' }
