@@ -1,1 +1,1 @@
-Package { #name : 'Cours' }
+Package { #name : 'Modelisation' }
